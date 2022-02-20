@@ -2,6 +2,7 @@
   <div>
 
     <h2>商品一覧</h2>
+    
     <div><%= link_to "+", new_admin_item_path %></div>
 
     <table>
@@ -18,7 +19,11 @@
         <% @items.each do |items| %>
         <tr>
           <td><%= items.id %></td>
-          <td><%= items.name %></td>
+          <td>
+            <%= link_to admin_item_path(items.id) do %>
+              <%= items.name %>
+            <% end %>
+          </td>
           <td><%= items.price %></td>
           <td><%= items.genre.name %></td>
           <!--<td><= items.is_active %></td>-->
