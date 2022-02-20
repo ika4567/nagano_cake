@@ -16,13 +16,13 @@
         <p>商品説明</p>
         <span><%= @item.introduction %></span>
       </div>
-      <!--<div>-->
-      <!--  <p>ジャンル</p>-->
-      <!--  <p><= @item.genre.name %></p>-->
-      <!--</div>-->
+      <div>
+        <p>ジャンル</p>
+        <p><%= @item.genre_id %></p>
+      </div>
       <div>
         <p>税込価格<br>(税抜価格)</p>
-        <p><%= @item.price %>*1.1 "("<%= @item.price %>") 円"</p>
+        <p><%= @taxin %> (<%= @item.price %>) 円</p>
       </div>
       <!--<div>-->
       <!--  <p>販売ステータス</p>-->
