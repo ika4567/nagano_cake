@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    get 'homes/top'
     root to: "homes#top"
   end
 
