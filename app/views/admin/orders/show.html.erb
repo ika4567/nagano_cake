@@ -1,2 +1,84 @@
-<h1>Admin::Orders#show</h1>
-<p>Find me in app/views/admin/orders/show.html.erb</p>
+<div>
+  <div>
+
+    <h2>注文履歴詳細</h2>
+
+    <div>
+      
+      <table>
+        <tr>
+          <th>購入者</th>
+          <td><%= @order.customer.full_name %></td>
+        </tr>
+        <tr>
+          <th>注文日</th>
+          <td><%= @order.created_at %></td>
+        </tr>
+        <tr>
+          <th>配送先</th>
+          <td>
+            <%= @order.postal_code %> <%= @order.address %><br>
+            <%= @order.name %>
+          </td>
+        </tr>
+        <tr>
+          <th>支払方法</th>
+          <td><%= @order.payment %></td>
+        </tr>
+        <!--<tr>-->
+          <!--<th>注文ステータス</th>-->
+          <!--<td>-->
+          <!--  <= form_with model: @order, local:turue do |f| %>-->
+          <!--  <= f.select :order_status %>-->
+          <!--  <= f.submit "更新", admin_order_path(@order.id) %>-->
+          <!--</td>-->
+        <!--</tr>-->
+      </table>
+      
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>商品名</th>
+              <th>単価（税込）</th>
+              <th>数量</th>
+              <th>小計</th>
+              <th>製作ステータス</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @order_detail.each do |order_detail| %>
+            <td><%= order_detail.item.name %></td>
+            <td><%= order_detail.tax_price %></td>
+            <td><%= order_detail.amount %></td>
+            <td><%= order_detail.sum_of_price %></td>
+            <!--製作ステータスをenumから呼び出す-->
+            <= form_with model: order_detail, local:turue do |f| %>
+            <td><= f.select :product_status %></td>
+            <td><= f.submit "更新", admin_order_path(@order.id) %></td>
+            <% end %>
+          </tbody>
+        </table>
+      
+        <teble>
+          <tr>
+            <th>商品合計</th>
+            <td><%=%>円</td>
+          </tr>
+          <tr>
+            <th>送料</th>
+            <td><%= postage %>円</td>
+          </tr>
+          <tr>
+            <th>請求金額合計</th>
+            <td><%=%>円</td>
+          </tr>
+        </table>
+        
+      </div>
+      
+    </div>
+    
+  </div>
+</div>

@@ -13,4 +13,8 @@ class Item < ApplicationRecord
     image
   end
 
+  def tax_in_price
+    (price * 1.10).round(0)
+  end
+
 end
