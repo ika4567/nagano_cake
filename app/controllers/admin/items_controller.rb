@@ -16,8 +16,10 @@ class Admin::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @taxin = (@item.price*1.10).round(0)
+    #ジャンル名
+    @genre_id = @item.genre.name
     # 税込価格
+    @taxin = (@item.price*1.10).round(0)
   end
 
   def edit
