@@ -6,12 +6,13 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <header>
+      
         <li><%= link_to "商品一覧", admin_items_path %></li>
         <li><%= link_to "会員一覧", admin_customers_path %></li>
         <li>注文履歴一覧</li>

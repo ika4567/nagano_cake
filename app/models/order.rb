@@ -2,11 +2,9 @@ class Order < ApplicationRecord
   
   has_many :order_details, dependent: :destroy
   belongs_to :customer
+
   
-  def sum_of_price
-    (tax_price * amount).round(0)
-  end
-  
+  # 送料
   def postage
     800
   end
