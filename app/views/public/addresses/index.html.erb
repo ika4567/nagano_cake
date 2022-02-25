@@ -4,7 +4,7 @@
     <h2>配送先登録/一覧</h2>
 
     <div>
-      <%= form_with model: @, local:true do |f| %>
+      <%= form_with model: @address, method: :post, url: public_addresses_path, local:true do |f| %>
       <div>
         <%= f.label "郵便番号(ハイフンなし)" %>
         <%= f.text_field :postal_code %>
@@ -22,7 +22,7 @@
     </div>
 
     <div>
-      <table>
+      <table class="table">
         <thead>
           <td>郵便番号</td>
           <td>住所</td>
@@ -30,7 +30,7 @@
           <td></td>
         </thead>
         <tbody>
-          <% @.each do |address| %>
+          <% @addresses.each do |address| %>
           <td><%= address.postal_code %></td>
           <td><%= address.address %></td>
           <td><%= address.name %></td>
