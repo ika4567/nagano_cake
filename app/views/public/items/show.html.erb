@@ -1,2 +1,19 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
+<div>
+  <div>
+
+    <div>
+      <%= image_tag @item.get_image %>
+      <strong>
+        <%= @item.name %>
+      </strong>
+      <%= @item.introduction %>
+      <p>
+        <strong>
+        <%= number_to_currency( @item.with_tax_price, precision: 0, unit: "￥") %>
+        </strong>
+        (税込)
+      </p>
+    </div>
+
+  </div>
+</div>

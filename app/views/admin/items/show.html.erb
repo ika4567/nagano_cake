@@ -24,7 +24,9 @@
           </div>
           <div class="row">
             <p class="col-3">税込価格<br>(税抜価格)</p>
-            <p class="col-5"><%= @item.with_tax_price %> (<%= @item.price %>) 円</p>
+            <p class="col-5">
+              <%= number_to_currency( @item.with_tax_price, precision: 0, unit: "") %>
+              (<%= number_to_currency( @item.price, precision: 0, unit: "") %>) 円</p>
           </div>
           <!--<div class="row">-->
           <!--  <p class="col-3">販売ステータス</p>-->

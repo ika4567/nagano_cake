@@ -29,7 +29,7 @@
                   <%= items.name %>
                 <% end %>
               </td>
-              <td><%= items.price %></td>
+              <td><%= number_to_currency( items.price, precision: 0, unit: "") %></td>
               <td><%= items.genre.name %></td>
               <!--<td><= items.is_active %></td>-->
             </tr>

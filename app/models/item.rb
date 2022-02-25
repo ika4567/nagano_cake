@@ -13,9 +13,9 @@ class Item < ApplicationRecord
     image
   end
 
-  # 税込価格
+  # 税込価格（税率10%）
   def with_tax_price
-    (price * 1.10).floor
+    price * 1.10
   end
 
 end
