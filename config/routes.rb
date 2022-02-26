@@ -25,38 +25,25 @@ Rails.application.routes.draw do
     root to: "homes#top"
   end
 
-  namespace :public do
-    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
-  end
+  scope module: :public do
+    root to: "homes#top"
+    get 'about' => 'homes#about', as: 'about'
 
-  namespace :public do
+    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :orders, only: [:new, :index, :show, :create]
+    resources :cart_items, only: [:index]
+    resources :items, only: [:index, :show]
+    resource :customers, only: [:edit, :update]
+
     post 'orders/confirm' => 'orders#confirm', as: 'orders_confirm'
     get 'orders/thanks'
-  end
-
-  namespace :public do
-    resources :cart_items, only: [:index]
     patch 'cart_items/:id' => 'cart_items#update', as: 'cart_items_update'
     delete 'cart_items/:id' => 'cart_items#destroy', as: 'cart_items_destroy'
     delete 'cart_items/destroy_all', as: 'cart_items_destroy_all'
     post 'cart_items' => 'cart_items#create', as: 'cart_items_create'
-  end
-
-  namespace :public do
-    resource :customers, only: [:edit, :update]
     get 'customers/cancel'
     get 'customers/my_page' => 'customers#show', as: 'my_page'
     patch 'customers/withdraw' => 'customers#withdraw', as: 'customers_withdraw'
-  end
-
-  namespace :public do
-    resources :items, only: [:index, :show]
-  end
-
-  namespace :public do
-    root to: "homes#top"
-    get 'about' => 'homes#about', as: 'about'
   end
 
   devise_for :customers,skip: [:passwords], controllers: {

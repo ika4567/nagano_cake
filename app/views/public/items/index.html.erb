@@ -4,7 +4,7 @@
     <div>
       <h2>商品一覧</h2><p>(全？件)</p>
       <% @items.each do |item| %>
-        <%= link_to public_item_path(item) do %>
+        <%= link_to item_path(item) do %>
         <div>
           <!--商品画像-->
           <%= image_tag item.get_image %>

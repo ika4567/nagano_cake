@@ -13,6 +13,13 @@
         </strong>
         (税込)
       </p>
+      <div>
+        <%= form_with model: @item, url: cart_items_create_path, local:true do |f| %>
+        <%= f.hidden_field :name %>
+        <%= f.select :amount, *[1..5] %>
+        <%= f.submit "カートに入れる" %>
+        <% end %>
+      </div>
     </div>
 
   </div>
