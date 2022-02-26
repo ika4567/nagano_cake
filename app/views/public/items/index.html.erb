@@ -2,7 +2,7 @@
   <div>
 
     <div>
-      <h2><strong>商品一覧</strong>(全？件)</h2>
+      <h2><strong>商品一覧</strong>(全<%= @items.count %>件)</h2>
       <% @items.each do |item| %>
         <div>
           <!--商品画像-->
@@ -13,7 +13,6 @@
           <%= item.name %>
           <!--税抜価格-->
           <%= number_to_currency( item.price, precision: 0, unit: "￥") %>
-
         </div>
       <% end %>
     </div>

@@ -12,11 +12,18 @@
 
     <div>
       <h2>新着商品</h2>
-      <div>
-        <!--商品画像-->
-        <!--商品名-->
-        <!--税抜価格-->
-      </div>
+      <% @items.each do |item| %>
+        <div>
+          <!--商品画像-->
+          <%= link_to item_path(item) do %>
+            <%= image_tag item.get_image %>
+          <% end %>
+          <!--商品名-->
+          <%= item.name %>
+          <!--税抜価格-->
+          <%= number_to_currency( item.price, precision: 0, unit: "￥") %>
+        </div>
+      <% end %>
       <%= link_to "全ての商品を見る>>", items_path %>
     </div>
 
