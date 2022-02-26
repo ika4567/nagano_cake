@@ -2,19 +2,19 @@
   <div>
 
     <div>
-      <h2>商品一覧</h2><p>(全？件)</p>
+      <h2><strong>商品一覧</strong>(全？件)</h2>
       <% @items.each do |item| %>
-        <%= link_to item_path(item) do %>
         <div>
           <!--商品画像-->
-          <%= image_tag item.get_image %>
+          <%= link_to item_path(item) do %>
+            <%= image_tag item.get_image %>
+          <% end %>
           <!--商品名-->
           <%= item.name %>
           <!--税抜価格-->
           <%= number_to_currency( item.price, precision: 0, unit: "￥") %>
 
         </div>
-        <% end %>
       <% end %>
     </div>
 
