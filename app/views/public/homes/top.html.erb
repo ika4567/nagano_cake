@@ -21,7 +21,7 @@
           <!--商品名-->
           <%= item.name %>
           <!--税抜価格-->
-          <%= number_to_currency( item.price, precision: 0, unit: "￥") %>
+          ￥<%= number_to_currency( item.price, precision: 0, unit: "") %>
         </div>
       <% end %>
       <%= link_to "全ての商品を見る>>", items_path %>

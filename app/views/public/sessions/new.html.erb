@@ -5,7 +5,8 @@
 
     <div>
       <h3>会員の方はこちらからログイン</h3>
-      <%= form_with model: @user, url: customer_session_path do |f| %>
+      <%= form_with model: @customer, url: customer_session_path do |f| %>
+      
         <div class="field">
           <%= f.label "メールアドレス" %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -24,10 +25,10 @@
 
     <div>
       <h3>会員登録がお済みでない方</h3>
-      <p><%= link_to "こちら", new_customer_registration_path %>　から新規登録を行ってください。</p>
+      <p><%= render "public/shared/links" %>から新規登録を行ってください。</p>
     </div>
 
-    <%= render "public/shared/links" %>
+
 
   </div>
 </div>

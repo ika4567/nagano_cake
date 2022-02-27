@@ -12,7 +12,7 @@
           <!--商品名-->
           <%= item.name %>
           <!--税抜価格-->
-          <%= number_to_currency( item.price, precision: 0, unit: "￥") %>
+          ￥<%= number_to_currency( item.price, precision: 0, unit: "") %>
         </div>
       <% end %>
     </div>
