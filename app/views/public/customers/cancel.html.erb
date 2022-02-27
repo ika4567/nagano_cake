@@ -12,8 +12,8 @@
     </div>
 
     <div>
-      <%= link_to "退会しない", public_my_page_path() %>
-      <%= link_to "退会する", method: :patch, url: public_customers_withdraw_path %>
+      <%= link_to "退会しない", my_page_path(current_customer.id), class:"btn btn-primary" %>
+      <%= link_to "退会する", method: :patch, url: customers_withdraw_path, class:"btn btn-danger" %>
     </div>
 
   </div>

@@ -7,11 +7,11 @@
 
       <div>
         <strong>登録情報</strong>
-        <%= link_to "編集する", edit_public_customer_path(@customer) %>
+        <%= link_to "編集する", edit_customers_path(@customer), class:"btn btn-success" %>
       </div>
 
       <div>
-        <table>
+        <table class="table">
           <tbody>
             <tr>
               <td>氏名</td>
@@ -31,7 +31,7 @@
             </tr>
             <tr>
               <td>電話番号</td>
-              <td><%= @customer.phone_number %></td>
+              <td><%= @customer.telephone_number %></td>
             </tr>
             <tr>
               <td>メールアドレス</td>
@@ -43,11 +43,11 @@
 
       <div>
         <strong>配送先</strong>
-        <%= link_to "一覧を見る", public_addresses_path(@customer) %>
+        <%= link_to "一覧を見る", addresses_path(@customer), class:"btn btn-primary" %>
       </div>
       <div>
         <strong>注文履歴</strong>
-        <%= link_to "一覧を見る", public_orders_path(@customer) %>
+        <%= link_to "一覧を見る", orders_path(@customer), class:"btn btn-primary" %>
       </div>
 
     </div>

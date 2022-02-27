@@ -3,7 +3,7 @@
 
     <h2>会員情報編集</h2>
 
-    <%= form_with model: @user, local:true do |f| %>
+    <%= form_with model: @customer, method: :patch, url: customers_path, local:true do |f| %>
 
       <div class="field">
         <%= f.label "名前" %>
@@ -38,8 +38,8 @@
       </div>
 
       <div class="actions">
-        <%= f.submit "編集内容を保存" %>
-        <%= link_to "退会する", public_customers_cancel_path %>
+        <%= f.submit "編集内容を保存", class:"btn btn-success" %>
+        <%= link_to "退会する", customers_cancel_path, class:"btn btn-danger" %>
       </div>
     <% end %>
 
