@@ -1,5 +1,9 @@
 class Public::OrdersController < ApplicationController
   def new
+    @order = Order.new
+  end
+
+  def create
   end
 
   def confirm
@@ -8,12 +12,10 @@ class Public::OrdersController < ApplicationController
   def thanks
   end
 
-  def create
-  end
-
   def index
   end
 
   def show
+    @orders = Order.all
   end
 end

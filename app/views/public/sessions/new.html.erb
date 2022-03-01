@@ -1,34 +1,36 @@
-<div>
-  <div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-lg-10 px-5 mx-auto">
 
-    <h2>ログイン</h2>
+      <h2>ログイン</h2>
 
-    <div>
-      <h3>会員の方はこちらからログイン</h3>
-      <%= form_with model: @customer, url: customer_session_path do |f| %>
-      
-        <div class="field">
-          <%= f.label "メールアドレス" %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <div>
+        <h3>会員の方はこちらからログイン</h3>
+        <%= form_with model: @customer, url: customer_session_path do |f| %>
+
+        <div class="form-group">
+          <div class="row align-items-center">
+            <%= f.label "メールアドレス", class:"col-form-label col-md-4 col-lg-4" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control col-md-8 col-lg-6" %>
+          </div>
         </div>
-
-        <div class="field">
-          <%= f.label "パスワード" %>
-          <%= f.password_field :password, autocomplete: "current-password" %>
+        <div class="form-group">
+          <div class="row align-items-center">
+            <%= f.label "パスワード", class:"col-form-label col-md-4 col-lg-4" %>
+            <%= f.password_field :password, autocomplete: "current-password", class:"form-control col-md-8 col-lg-6" %>
+          </div>
         </div>
-
-        <div class="actions">
-          <%= f.submit "ログイン" %>
+        <div class="form-group text-center">
+          <%= f.submit "ログイン", class:"btn btn-primary" %>
         </div>
-      <% end %>
+        <% end %>
+      </div>
+
+      <div>
+        <h3>会員登録がお済みでない方</h3>
+        <p><%= render "public/shared/links" %>から新規登録を行ってください。</p>
+      </div>
+
     </div>
-
-    <div>
-      <h3>会員登録がお済みでない方</h3>
-      <p><%= render "public/shared/links" %>から新規登録を行ってください。</p>
-    </div>
-
-
-
   </div>
 </div>

@@ -1,21 +1,30 @@
-<div>
-  <div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-10 px-5 px-sm-0">
 
-    <div>
-      <h2><strong>商品一覧</strong>(全<%= @items.count %>件)</h2>
-      <% @items.each do |item| %>
-        <div>
-          <!--商品画像-->
-          <%= link_to item_path(item) do %>
-            <%= image_tag item.get_image %>
-          <% end %>
-          <!--商品名-->
-          <%= item.name %>
-          <!--税抜価格-->
-          ￥<%= number_to_currency( item.price, precision: 0, unit: "") %>
-        </div>
-      <% end %>
+      <h2>商品一覧(全<%= @items.count %>件)</h2>
+
+      <div class="d-flex">
+        <% @items.each do |item| %>
+          <div class="mr-3">
+            <div>
+              <!--商品画像-->
+              <%= link_to item_path(item) do %>
+                <%= image_tag item.get_image %>
+              <% end %>
+            </div>
+            <div>
+              <!--商品名-->
+              <%= item.name %>
+            </div>
+            <div>
+              <!--税抜価格-->
+              ￥<%= number_to_currency( item.price, precision: 0, unit: "") %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
     </div>
-
   </div>
 </div>

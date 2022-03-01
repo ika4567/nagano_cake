@@ -4,7 +4,7 @@ class OrderDetail < ApplicationRecord
   belongs_to :item
   
   # 小計
-  def subtotal
+  def sum_of_pri
     item.with_tax_price * amount
   end
 

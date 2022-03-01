@@ -1,31 +1,42 @@
-<div>
-  <div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-10 px-5 px-sm-0">
 
-    <div>
-      <span>
-        ようこそ、ながのCAKEへ！<br>
-        このサイトは、ケーキ販売のECサイトになります。<br>
-        会員でない方も商品の閲覧はできますが、<br>
-        購入には会員登録が必要になります。
-      </span>
-    </div>
+      <div class="my-3 text-center">
+        <span>
+          ようこそ、ながのCAKEへ！<br>
+          このサイトは、ケーキ販売のECサイトになります。<br>
+          会員でない方も商品の閲覧はできますが、<br>
+          購入には会員登録が必要になります。
+        </span>
+      </div>
 
-    <div>
-      <h2>新着商品</h2>
-      <% @items.each do |item| %>
+      <div>
+        <h2>新着商品</h2>
+        <div class="d-flex justify-content-center">
+        <% @items.each do |item| %>
         <div>
-          <!--商品画像-->
-          <%= link_to item_path(item) do %>
-            <%= image_tag item.get_image %>
-          <% end %>
-          <!--商品名-->
-          <%= item.name %>
-          <!--税抜価格-->
-          ￥<%= number_to_currency( item.price, precision: 0, unit: "") %>
+          <div>
+            <!--商品画像-->
+            <%= link_to item_path(item) do %>
+              <%= image_tag item.get_image %>
+            <% end %>
+          </div>
+          <div>
+            <!--商品名-->
+            <%= item.name %>
+          </div>
+          <div>
+            <!--税抜価格-->
+            ￥<%= number_to_currency( item.price, precision: 0, unit: "") %>
+          </div>
         </div>
-      <% end %>
-      <%= link_to "全ての商品を見る>>", items_path %>
-    </div>
+        <% end %>
+        </div>
+        <p class="text-right"><%= link_to "全ての商品を見る>>", items_path %></p>
 
+      </div>
+
+    </div>
   </div>
 </div>
