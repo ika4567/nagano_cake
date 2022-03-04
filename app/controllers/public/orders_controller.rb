@@ -9,16 +9,16 @@ class Public::OrdersController < ApplicationController
     @order = current_customer.orders.new(order_params)
     @order.save
     @order_detail = OrderDetail.new
-    @order_detail.order_id = @order.id
     cart_items = current_customer.cart_items.all
     cart_items.each do |cart_item|
+      @order_detail.order_id = @order.id
       @order_detail.item_id = cart_item.item_id
       @order_detail.tax_price = cart_item.item.with_tax_price
       @order_detail.amount = cart_item.amount
     # binding.pry
+      @order_detail.save
     end
-    @order_detail.save
-    redirect_to orders_thanks_path
+    redirect_to thanks_path
     current_customer.cart_items.destroy_all
   end
 
@@ -49,12 +49,22 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
-    @orders = Order.all
+    @order = Order.find(params[:id])
+    @order_details = @order.order_details.all
+    @total_price = @order_details.inject(0) { |sum, item| sum + item.sum_of_price }
   end
+
+  # 削除する！！（routes.rb、show.html.erb）
+  def destroy
+    @order = Order.find(params[:id])
+    Order.destroy(params[:id])
+    redirect_to order_path
+  end
+  # ここまで
 
   private
   def order_params
-    params.require(:order).permit(:payment, :postal_code, :address, :name)
+    params.require(:order).permit(:payment, :postal_code, :address, :name, :billing)
   end
 
 end
