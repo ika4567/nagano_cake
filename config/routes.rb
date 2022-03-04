@@ -32,8 +32,8 @@ Rails.application.routes.draw do
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
 
     resources :orders, only: [:new, :index, :show, :create]
-    post 'orders/confirm' => 'orders#confirm', as: 'orders_confirm'
     get 'orders/thanks'
+    post 'orders/confirm' => 'orders#confirm', as: 'orders_confirm'
 
     resources :cart_items, only: [:index]
     patch 'cart_items/:id' => 'cart_items#update', as: 'cart_items_update'
