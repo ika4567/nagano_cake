@@ -20,7 +20,7 @@
             <% @cart_items.each do |cart_item| %>
             <tr>
               <td class="d-flex">
-                <div class="col-lg-3"><%= image_tag cart_item.get_image %></div>
+                <div class="col-lg-3"><%= image_tag cart_item.get_image(80,80) %></div>
                 <div class="col-lg-9"><%= cart_item.item.name %></div>
               </td>
               <td><%= number_to_currency( cart_item.item.with_tax_price, precision: 0, unit: "") %></td>

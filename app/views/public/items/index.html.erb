@@ -4,13 +4,13 @@
 
       <h2>商品一覧(全<%= @items.count %>件)</h2>
 
-      <div class="d-flex">
+      <div class="d-flex flex-wrap justify-content-around mb-2">
         <% @items.each do |item| %>
-          <div class="mr-3">
+          <div class="col-2">
             <div>
               <!--商品画像-->
               <%= link_to item_path(item) do %>
-                <%= image_tag item.get_image %>
+                <%= image_tag item.get_image(200,200) %>
               <% end %>
             </div>
             <div>
@@ -24,6 +24,7 @@
           </div>
         <% end %>
       </div>
+      <%= paginate @items %>
 
     </div>
   </div>
