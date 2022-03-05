@@ -1,5 +1,5 @@
 class Public::OrdersController < ApplicationController
-  protect_from_forgery
+  before_action :authenticate_customer!
 
   def new
     @order = Order.new
@@ -8,9 +8,9 @@ class Public::OrdersController < ApplicationController
   def create
     @order = current_customer.orders.new(order_params)
     @order.save
-    @order_detail = OrderDetail.new
     cart_items = current_customer.cart_items.all
     cart_items.each do |cart_item|
+      @order_detail = OrderDetail.new
       @order_detail.order_id = @order.id
       @order_detail.item_id = cart_item.item_id
       @order_detail.tax_price = cart_item.item.with_tax_price
@@ -23,8 +23,10 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
+
     @order = Order.new(order_params)
     if params[:order][:select_address] == "0"
+      #binding.pry
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address
       @order.name = current_customer.last_name + current_customer.first_name

@@ -5,12 +5,12 @@
       <h2>配送先登録/一覧</h2>
 
       <div>
-        <%= render 'address', address: @address %>
+        <%= form_with model: @address, local:true do |f| %>
+        <%= render 'address', f: f %>
         <div class="form-group text-center">
-          <%= form_with model: @address, local:true do |f| %>
             <%= f.submit "新規登録", class:"btn btn-success" %>
-          <% end %>
         </div>
+        <% end %>
       </div>
 
       <div class="row">
@@ -30,7 +30,7 @@
               <td><%= address.address %></td>
               <td><%= address.name %></td>
               <td><%= link_to "編集する", edit_address_path(address.id), class:"btn btn-success text-nowrap" %></td>
-              <td><%= link_to "削除する", address_path(current_customer), method: :delete, class:"btn btn-danger text-nowrap" %></td>
+              <td><%= link_to "削除する", address_path(address.id), method: :delete, "data-confirm" => "削除しますか？", class:"btn btn-danger text-nowrap" %></td>
             </tr>
             <% end %>
           </tbody>
