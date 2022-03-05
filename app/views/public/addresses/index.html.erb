@@ -1,2 +1,42 @@
-<h1>Public::Addresses#index</h1>
-<p>Find me in app/views/public/addresses/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-lg-10 px-5 mx-auto">
+
+      <h2>配送先登録/一覧</h2>
+
+      <div>
+        <%= form_with model: @address, local:true do |f| %>
+        <%= render 'address', f: f %>
+        <div class="form-group text-center">
+            <%= f.submit "新規登録", class:"btn btn-success" %>
+        </div>
+        <% end %>
+      </div>
+
+      <div class="row">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <td class="col-2 table-active">郵便番号</td>
+              <td class="col-md-5 col-lg-3 table-active">住所</td>
+              <td class="col-2 table-active">宛名</td>
+              <td colspan="3", class="col-md-3 col-lg-3 table-active"></td>
+            </tr>
+          </thead>
+          <tbody>
+            <% @addresses.each do |address| %>
+            <tr>
+              <td><%= address.postal_code %></td>
+              <td><%= address.address %></td>
+              <td><%= address.name %></td>
+              <td><%= link_to "編集する", edit_address_path(address.id), class:"btn btn-success text-nowrap" %></td>
+              <td><%= link_to "削除する", address_path(address.id), method: :delete, "data-confirm" => "削除しますか？", class:"btn btn-danger text-nowrap" %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
