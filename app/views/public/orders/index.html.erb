@@ -27,7 +27,9 @@
                 </td>
                 <td>
                   <% order.order_details.each do |order_detail| %>
-                  <%= order_detail.item.name %>
+                  <li class="list-unstyled">
+                    <%= order_detail.item.name %>
+                  </li>
                   <% end %>
                 </td>
                 <td><%= number_to_currency( order.billing, precision: 0, format: "%u%n", unit: "￥") %></td>
