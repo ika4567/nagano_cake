@@ -1,5 +1,5 @@
 class Public::OrdersController < ApplicationController
-  before_action :authenticate_customer!
+  before_action :authenticate_admin!, except: [:index, :new, :create, :confirm, :thanks, :show]
 
   def new
     @order = Order.new
@@ -23,7 +23,6 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
-
     @order = Order.new(order_params)
     if params[:order][:select_address] == "0"
       #binding.pry

@@ -1,4 +1,6 @@
 class Public::CustomersController < ApplicationController
+  before_action :authenticate_admin!, except: [:show, :edit, :update, :cancel, :withdraw]
+
   def show
     @customer = Customer.find(current_customer.id)
   end

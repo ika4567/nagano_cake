@@ -1,4 +1,6 @@
 class Public::AddressesController < ApplicationController
+  before_action :authenticate_admin!, except: [:index, :edit, :create, :update, :destroy]
+
   def index
     @address = Address.new
     @addresses = current_customer.addresses.all

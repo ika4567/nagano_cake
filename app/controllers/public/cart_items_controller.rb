@@ -1,4 +1,6 @@
 class Public::CartItemsController < ApplicationController
+  before_action :authenticate_admin!, except: [:index, :create, :update, :destroy, :destroy_all]
+
   def index
     @cart_items = current_customer.cart_items
     @total_price = 0
