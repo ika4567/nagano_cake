@@ -21,15 +21,13 @@
         </div>
         <div class="form-group row">
           <%= f.label "ジャンル", class:"col-sm-3 col-md-3 col-form-label" %>
-            <div class="col-sm-9 col-md-5 p-0">
+            <div class="form-select col-sm-9 col-md-5 p-0">
               <%= f.collection_select(:genre_id, @genres, :id, :name, {prompt: "--選択してください--"}) %>
             </div>
         </div>
         <div class="form-group row">
           <%= f.label "税抜価格", class:"col-sm-3 col-md-3 col-form-label" %>
-            <p class="col-sm-9 col-md-5 p-0">
-              <%= f.text_field :price, placeholder: "1000" %>円
-            </p>
+          <%= f.text_field :price, placeholder: "1000", class:"col-3 mr-1 form-control" %><p>円</p>
         </div>
         <!--<div class="form-group row">-->
           <!--"販売ステータス", class:"col-sm-3 col-md-3 col-form-label"-->

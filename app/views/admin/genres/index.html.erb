@@ -1,36 +1,38 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-10 px-5 px-sm-0">
+    <div class="col-md-12 col-lg-10 px-5 mx-auto">
 
-      <h2 class="mb-3">　ジャンル一覧・追加</h2>
+      <h2>ジャンル一覧・追加</h2>
 
-      <div class="form-inline">
-        <div class="form-group">
-          <%= form_with model: @new, local:true do |f| %>
-          <%= f.label "ジャンル名" %>
-          <%= f.text_field :name, placeholder: "ジャンル名", class:"form-control" %>
-          <%= f.submit "新規登録", class:"btn btn-success rounded" %>
+      <div class="form-group">
+        <%= form_with model: @genre, local:true do |f| %>
+        <div class="form-inline">
+          <%= f.label "ジャンル名", class:"control-label mr-3" %>
+          <%= f.text_field :name, placeholder: "ジャンル名", class:"form-control col-md-4 mr-3 mb-1" %>
+          <%= f.submit "新規登録", class:"btn btn-success" %>
           <% end %>
         </div>
       </div>
 
-      <div>
-        <table class="table">
-          <thead class="table-light">
-            <tr>
-              <th>ジャンル</th>
-              <th class="col-3"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @genres.each do |genre| %>
-            <tr>
-              <td><%= genre.name %></td>
-              <td><%= link_to "編集する", edit_admin_genre_path(genre), class:"btn btn-success" %></td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
+      <div class="row">
+        <div class="col-lg-5">
+          <table class="table">
+            <thead class="thead-light">
+              <tr>
+                <th>ジャンル</th>
+                <th class="colspan-3"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @genres.each do |genre| %>
+              <tr>
+                <td><%= genre.name %></td>
+                <td><%= link_to "編集する", edit_admin_genre_path(genre), class:"btn btn-success" %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
       </div>
 
     </div>

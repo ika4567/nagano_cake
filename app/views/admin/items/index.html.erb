@@ -1,17 +1,19 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-10 px-5 px-sm-0 mx-auto">
+    <div class="col-md-12 col-lg-10 px-5 mx-auto">
 
-      <div>
-        <h2 class="mb-3">商品一覧</h2>
-        <%= link_to new_admin_item_path do %>
-        <i class="fa-thin fa-plus"></i>
-        <% end %>
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>商品一覧</h2>
+        <strong>
+          <%= link_to new_admin_item_path do %>
+          <i class="fas-fa fa-plus text-dark mr-3"></i>
+          <% end %>
+        </strong>
       </div>
 
       <div>
         <table class="table">
-          <thead class="table-light">
+          <thead class="thead-light">
             <tr>
               <th>商品ID</th>
               <th>商品名</th>
@@ -24,11 +26,7 @@
             <% @items.each do |items| %>
             <tr>
               <td><%= items.id %></td>
-              <td>
-                <%= link_to admin_item_path(items.id) do %>
-                  <%= items.name %>
-                <% end %>
-              </td>
+              <td><%= link_to items.name, admin_item_path(items.id), class:"text-dark" %></td>
               <td><%= number_to_currency( items.price, precision: 0, unit: "") %></td>
               <td><%= items.genre.name %></td>
               <!--<td><= items.is_active %></td>-->

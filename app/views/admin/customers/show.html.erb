@@ -1,51 +1,50 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-10 px-5 px-sm-0">
+    <div class="col-md-12 col-lg-10 px-5 mx-auto">
 
       <h2><%= @customer.full_name %>さんの会員詳細</h2>
 
       <div>
         <div class="row">
           <p class="col-3">会員ID</p>
-          <%= @customer.id class:"col-9" %>
+          <p><%= @customer.id %></p>
         </div>
         <div class="row">
           <p class="col-3">氏名</p>
-          <p class="col-9">
+          <p>
           <%= @customer.last_name %> <%= @customer.first_name %>
           </p>
         </div>
         <div class="row">
           <p class="col-3">フリガナ</p>
-          <p class="col-9">
+          <p>
           <%= @customer.last_name_kana %> <%= @customer.first_name_kana %>
           </p>
         </div>
         <div class="row">
           <p class="col-3">郵便番号</p>
-          <%= @customer.postal_code class:"col-9" %>
+          <p><%= @customer.postal_code %></p>
         </div>
         <div class="row">
           <p class="col-3">住所</p>
-          <%= @customer.address class:"col-9" %>
+          <p><%= @customer.address %></p>
         </div>
         <div class="row">
           <p class="col-3">電話番号</p>
-          <%= @customer.telephone_number class:"col-9" %>
+          <p><%= @customer.telephone_number %></p>
         </div>
         <div class="row">
           <p class="col-3">メールアドレス</p>
-          <%= @customer.email class:"col-9" %>
+          <p><%= @customer.email %></p>
         </div>
         <!--<div class="row">-->
         <!--  <p class="col-3">会員ステータス</p>-->
-        <!--  <= @customer.is_active, class:"col-9" %>-->
+          <!--<p class="col-9"><= @customer.is_active %></p>-->
         <!--</div>-->
         <div class="row">
-          <div class="col-3"></div>
-          <div class="col-9">
-            <%= link_to "編集する", edit_admin_customer_path(@customer.id), class:"btn btn-success rounded px-5" %>
-            <%= link_to "注文履歴一覧を見る", admin_customers_path, class:"btn btn-primary rounded px-5" %>
+          <div class="offset-md-3 text-center">
+            <%= link_to "編集する", edit_admin_customer_path(@customer.id), class:"btn btn-success mr-lg-3 mb-1" %>
+            <%= link_to "注文履歴一覧を見る", admin_root_path, class:"btn btn-primary mb-1" %>
           </div>
         </div>
       </div>

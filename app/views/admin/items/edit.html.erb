@@ -1,34 +1,32 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-8 px-5 px-sm-0 mx-auto">
+    <div class="col-md-12 col-lg-10 px-5 mx-auto">
 
-      <h2 class="mb-3">商品編集</h2>
+      <h2>商品編集</h2>
 
       <div>
         <%= form_with model: @item, url: admin_item_path, method: :patch, local:true do |f| %>
           <div class="form-group row">
-            <%= f.label "商品画像", class:"col-sm-3 col-md-3 col-form-label" %>
+            <%= f.label "商品画像", class:"col-sm-3 col-form-label" %>
             <%= f.file_field :image, accept: "image/*", class:"col-sm-9 col-md-5 form-control-file p-0" %>
           </div>
           <div class="form-group row">
-            <%= f.label "商品名", class:"col-sm-3 col-md-3 col-form-label" %>
+            <%= f.label "商品名", class:"col-sm-3 col-form-label" %>
             <%= f.text_field :name, placeholder: "商品名", class:"col-sm-9 col-md-5 form-control" %>
           </div>
           <div class="form-group row">
-            <%= f.label "商品説明", class:"col-sm-3 col-md-3 col-form-label" %>
+            <%= f.label "商品説明", class:"col-sm-3 col-form-label" %>
             <%= f.text_area :introduction, placeholder: "例：○○が特徴の商品です。", class:"col-sm-9 col-md-5 form-control" %>
           </div>
           <div class="form-group row">
-            <%= f.label "ジャンル", class:"col-sm-3 col-md-3 col-form-label" %>
+            <%= f.label "ジャンル", class:"col-sm-3 col-form-label" %>
             <div class="col-sm-9 col-md-5 p-0">
               <%= f.collection_select(:genre_id, @genres, :id, :name, {prompt: "--選択してください--"}) %>
             </div>
           </div>
           <div class="form-group row">
-            <%= f.label "税抜価格", class:"col-sm-3 col-md-3 col-form-label" %>
-            <p class="col-sm-9 col-md-5 p-0">
-              <%= f.text_field :price, placeholder: "1000" %>円
-            </p>
+            <%= f.label "税抜価格", class:"col-sm-3 col-form-label" %>
+            <%= f.text_field :price, placeholder: "1000", class:"col-3 mr-1 form-control" %><p>円</p>
           </div>
           <!--<div class="form-group row">-->
             <!--"販売ステータス", class:"col-sm-3 col-md-3 col-form-label"-->
