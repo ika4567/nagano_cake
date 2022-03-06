@@ -1,43 +1,41 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <div class="col-sm-12 col-md-10 px-5 px-sm-0">
 
-      <h2 class="mb-3">
-        <%= @customer.full_name %>さんの会員詳細
-      </h2>
+      <h2><%= @customer.full_name %>さんの会員詳細</h2>
 
-      <div class="container">
+      <div>
         <div class="row">
           <p class="col-3">会員ID</p>
-          <%= @customer.id, class:"col-9" %>
+          <%= @customer.id class:"col-9" %>
         </div>
         <div class="row">
           <p class="col-3">氏名</p>
           <p class="col-9">
-          <%= @customer.last_name %> + " " + <%= @customer.first_name %>
+          <%= @customer.last_name %> <%= @customer.first_name %>
           </p>
         </div>
         <div class="row">
           <p class="col-3">フリガナ</p>
           <p class="col-9">
-          <%= @customer.last_name_kana %> + " " + <%= @customer.first_name_kana %>
+          <%= @customer.last_name_kana %> <%= @customer.first_name_kana %>
           </p>
         </div>
         <div class="row">
           <p class="col-3">郵便番号</p>
-          <%= @customer.postal_code, class:"col-9" %>
+          <%= @customer.postal_code class:"col-9" %>
         </div>
         <div class="row">
           <p class="col-3">住所</p>
-          <%= @customer.address, class:"col-9" %>
+          <%= @customer.address class:"col-9" %>
         </div>
         <div class="row">
           <p class="col-3">電話番号</p>
-          <%= @customer.telephone_number, class:"col-9" %>
+          <%= @customer.telephone_number class:"col-9" %>
         </div>
         <div class="row">
           <p class="col-3">メールアドレス</p>
-          <%= @customer.email, class:"col-9" %>
+          <%= @customer.email class:"col-9" %>
         </div>
         <!--<div class="row">-->
         <!--  <p class="col-3">会員ステータス</p>-->

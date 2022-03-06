@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-10 px-5 px-sm-0 mx-auto">
+    <div class="col-sm-12 col-md-10 px-5 px-sm-0">
 
       <h2>会員一覧</h2>
       <div>
         <table class="table">
-          <thead class="table-light">
+          <thead class="thead-light">
             <tr>
               <th>会員ID</th>
               <th>氏名</th>
@@ -17,24 +17,16 @@
             <% @customers.each do |customers| %>
             <tr>
               <td><%= customers.id %></td>
-              <td>
-                <%= link_to admin_customer_path(customers.id) do %>
-                  <%= customers.full_name %>
-                <% end %>
-              </td>
+              <td><%= link_to customers.full_name, admin_customer_path(customers.id), class:"text-dark" %></td>
               <td><%= customers.email %></td>
               <!--<td><= customers.is_active %></td>-->
             </tr>
             <% end %>
           </tbody>
         </table>
-
-        <!--<div>-->
-        <!--  <= paginate @items %>-->
-        <!--</div>-->
-
       </div>
 
+      <%= paginate @customers %>
     </div>
   </div>
 </div>
