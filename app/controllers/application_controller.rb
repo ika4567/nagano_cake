@@ -9,10 +9,11 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource_or_scope)
     if  resource_or_scope.class.name == "Admin"
       admin_root_path
-    else
+    elsif resource_or_scope.class.name == "Customer"
       root_path
     end
   end
+  
 
   def after_sign_out_path_for(resource_or_scope)
     if resource_or_scope == :customer
@@ -23,9 +24,13 @@ class ApplicationController < ActionController::Base
       root_path
     end
   end
-  
-  def after_sign_up_path_for(resource)
-    my_page_path
-  end
+
+  # def after_inactive_sign_up_path_for(resource_or_scope)
+  #   if  resource_or_scope.class.name == "Customer"
+  #     my_page_path
+  #   else
+  #     root_path
+  #   end
+  # end
 
 end

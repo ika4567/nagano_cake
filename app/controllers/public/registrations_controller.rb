@@ -40,6 +40,10 @@ class Public::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  def after_sign_up_path_for(resource)
+      my_page_path
+  end
+
   protected
 
   def configure_permitted_parameters
