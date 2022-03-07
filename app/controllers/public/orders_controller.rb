@@ -56,11 +56,11 @@ class Public::OrdersController < ApplicationController
   end
 
   # 削除する！！（routes.rb、show.html.erb）
-  def destroy
-    @order = Order.find(params[:id])
-    Order.destroy(params[:id])
-    redirect_to order_path
-  end
+  # def destroy
+  #   @order = Order.find(params[:id])
+  #   Order.destroy(params[:id])
+  #   redirect_to order_path
+  # end
   # ここまで
 
   private

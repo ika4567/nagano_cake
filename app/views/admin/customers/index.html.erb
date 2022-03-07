@@ -10,7 +10,7 @@
               <th>会員ID</th>
               <th>氏名</th>
               <th>メールアドレス</th>
-              <!--<th>ステータス</th>-->
+              <th>ステータス</th>
             </tr>
           </thead>
           <tbody>
@@ -19,7 +19,8 @@
               <td><%= customers.id %></td>
               <td><%= link_to customers.full_name, admin_customer_path(customers.id), class:"text-dark" %></td>
               <td><%= customers.email %></td>
-              <!--<td><= customers.is_active %></td>-->
+              <!--falsなら「有効」と表示する-->
+              <td><%= customers.is_active ? '退会' : '有効' %></td>
             </tr>
             <% end %>
           </tbody>

@@ -9,7 +9,6 @@ class Customer < ApplicationRecord
   has_many :cart_items, dependent: :destroy
   has_many :orders, dependent: :destroy
 
-
   def full_name
     last_name + first_name
   end
@@ -17,7 +16,5 @@ class Customer < ApplicationRecord
   def full_name_kana
     last_name_kana + first_name_kana
   end
-
-
 
 end
